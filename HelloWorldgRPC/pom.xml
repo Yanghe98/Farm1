@@ -3,4 +3,5 @@
   <groupId>com.example</groupId>
   <artifactId>HelloWorldgRPC</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <name>Farm</name>
 </project>
