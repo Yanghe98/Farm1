@@ -1,7 +1,8 @@
-import grpc.services.IrrigationService.*;
+import IrrigationService.*;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import utils.JmDNSUtil;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
