@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.services.CropManagementService";
+option java_outer_classname = "CropManagementServiceImpl";
+package CropManagementService;
+
+service CropManagementService {
+    rpc getGrowthStatus (GrowthStatusRequest) returns (GrowthStatusResponse);
+    rpc streamLightingData (LightingDataRequest) returns (stream LightingDataResponse);
+}
+
+message GrowthStatusRequest {
+}
+
+message GrowthStatusResponse {
+    string status = 1;
+}
+
+message LightingDataRequest {
+}
+
+message LightingDataResponse {
+    float intensity = 1;
+    float duration = 2;
+}

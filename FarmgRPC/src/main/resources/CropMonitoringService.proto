@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "grpc.services.CropMonitoringService";
+option java_outer_classname = "CropMonitoringServiceImpl";
+
+package CropMonitoringService;
+
+service CropMonitoringService {
+    rpc getTemperature (TemperatureRequest) returns (TemperatureResponse);
+    rpc getHumidity (HumidityRequest) returns (HumidityResponse);
+    rpc streamSensorData (StreamSensorDataRequest) returns (stream StreamSensorDataResponse);
+}
+
+message TemperatureRequest {
+}
+
+message TemperatureResponse {
+    float temperature = 1;
+}
+
+message HumidityRequest {
+}
+
+message HumidityResponse {
+    float humidity = 1;
+}
+
+message StreamSensorDataRequest {
+}
+
+message StreamSensorDataResponse {
+    float temperature = 1;
+    float humidity = 2;
+}

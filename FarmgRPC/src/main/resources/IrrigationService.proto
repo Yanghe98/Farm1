@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.services.IrrigationService";
+option java_outer_classname = "IrrigationServiceImpl";
+
+package IrrigationService;
+
+enum ControlCommand {
+    OPEN_VALVE = 0;
+    CLOSE_VALVE = 1;
+}
+
+service IrrigationService {
+    rpc getIrrigationStatus (IrrigationStatusRequest) returns (IrrigationStatusResponse);
+    rpc startIrrigation (StartIrrigationRequest) returns (StartIrrigationResponse);
+    rpc controlIrrigation (stream ControlIrrigationRequest) returns (stream ControlIrrigationResponse);
+}
+
+message IrrigationStatusRequest {
+}
+
+message IrrigationStatusResponse {
+    bool on = 1;
+}
+
+message StartIrrigationRequest {
+    float amount = 1;
+    string unit = 2;
+}
+
+message StartIrrigationResponse {
+    bool success = 1;
+}
+
+message ControlIrrigationRequest {
+    ControlCommand command = 1;
+    int32 value = 2;
+}
+
+message ControlIrrigationResponse {
+    float waterFlowRate = 1;
+    string valveStatus = 2;
+}
